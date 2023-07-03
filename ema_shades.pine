@@ -1,0 +1,24 @@
+//@version=5
+//R4WD4WG on GitHub
+
+indicator(title="EMA 36/200 + 200 SMA", overlay=true, shorttitle="EMA_SMA")
+
+ema200 = ta.ema(close, 200)
+sma200 = ta.sma(close, 200)
+ema36 = ta.ema(close, 36)
+
+plot_ema200 = plot(ema200, color=color.yellow, title="EMA 200")
+plot_sma200 = plot(sma200, color=color.purple, title="SMA 200")
+plot(ema36, color=color.red, title="EMA 36")
+
+fill(plot_ema200, plot_sma200, color=color.new(color.black, 80))
+
+
+// Draws the following:
+// 1. 36 EMA, Red Line
+// 2. 200 EMA, Yellow Line
+// 3. 200 SMA, Purple Line
+// 4. Light black shading inbetween the 200 EMA & 200 SMA.
+    // I personally set to 15% opacity with black in Tradingview.
+
+// Purpose: Adds additional visualization for those who like it.
